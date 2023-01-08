@@ -5,12 +5,11 @@ import { CardProps } from "../types/types";
 
 const Card: FC<CardProps> = ({ page }) => {
   return (
-    // <Link href={`/`}>
-    <>
-      <a className="flex justify-center ">
+    <Link href={`/articles/${page.slug}`}>
+      <div className="flex justify-center ">
         <div className="max-w-sm rounded overflow-hidden shadow-lg w-full my-4 md:my-0 content-between grid">
           {/* image */}
-          {/* <div>
+          <div>
             {" "}
             <Image
               className="w-full static w-full h-auto"
@@ -21,7 +20,7 @@ const Card: FC<CardProps> = ({ page }) => {
               height={225}
               quality={30}
             />
-          </div> */}
+          </div>
 
           {/* title & date*/}
           <div className="px-6 pt-4 ">
@@ -41,9 +40,8 @@ const Card: FC<CardProps> = ({ page }) => {
             ))}
           </div>
         </div>
-      </a>
-    </>
-    // </Link>
+      </div>
+    </Link>
   );
 };
 
