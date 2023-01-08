@@ -10,7 +10,7 @@ const Card: FC<CardProps> = ({ page }) => {
       <a className="flex justify-center ">
         <div className="max-w-sm rounded overflow-hidden shadow-lg w-full my-4 md:my-0 content-between grid">
           {/* image */}
-          {/* <div>
+          <div>
             {" "}
             <Image
               className="w-full static w-full h-auto"
@@ -21,7 +21,7 @@ const Card: FC<CardProps> = ({ page }) => {
               height={225}
               quality={30}
             />
-          </div> */}
+          </div>
 
           {/* title & date*/}
           <div className="px-6 pt-4 ">
