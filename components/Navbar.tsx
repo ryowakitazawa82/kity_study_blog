@@ -1,4 +1,6 @@
+import Link from "next/link";
 import React from "react";
+import { siteConfig } from "../site.config";
 
 const Navbar = () => {
   return (
@@ -8,9 +10,11 @@ const Navbar = () => {
           className="bg-grey-light rounded-md w-full"
           aria-label="breadcrumb"
         >
-          {/* <Link href="/">
-                <a className="text-gray-500 hover:text-gray-600">sample site</a>
-              </Link> */}
+          <Link href="/">
+            <div className="text-gray-500 hover:text-gray-600">
+              {siteConfig.title}
+            </div>
+          </Link>
           {/* Breadcrumb */}
         </div>
       </div>
