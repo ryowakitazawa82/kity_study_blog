@@ -5,9 +5,8 @@ import { CardProps } from "../types/types";
 
 const Card: FC<CardProps> = ({ page }) => {
   return (
-    // <Link href={`/`}>
-    <>
-      <a className="flex justify-center ">
+    <Link href={`/articles/${page.slug}`}>
+      <div className="flex justify-center ">
         <div className="max-w-sm rounded overflow-hidden shadow-lg w-full my-4 md:my-0 content-between grid">
           {/* image */}
           <div>
@@ -41,9 +40,8 @@ const Card: FC<CardProps> = ({ page }) => {
             ))}
           </div>
         </div>
-      </a>
-    </>
-    // </Link>
+      </div>
+    </Link>
   );
 };
 
