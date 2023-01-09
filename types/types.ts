@@ -21,6 +21,8 @@ export type CardProps = {
 export type ArticleProps = CardProps;
 export type ArticleMetaProps = CardProps;
 
+export type IndexProps = { pages: PageType[] };
+
 export type Params = ParsedUrlQuery & {
   slug: string;
 };
@@ -43,16 +45,16 @@ export type RichTextType = {
 };
 
 export type PropertyType = {
-  name: {};
-  auther: {};
-  slug: {};
-  published: {};
-  isPublic: {};
-  tags: {};
+  name: { title: RichTextType[] };
+  auther: { rich_text: RichTextType[] };
+  slug: { rich_text: RichTextType[] };
+  published: { data: { start: string } };
+  isPublic: { checkbox: boolean };
+  tags: { multi_select: [{ name: string }] };
 };
 
 export type PageType = {
   id: string;
   cover: FileType | null;
-  properties: Record<string, any>;
+  properties: PropertyType;
 };
