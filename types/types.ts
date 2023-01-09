@@ -15,9 +15,7 @@ export type PageProps = {
   content: string;
 };
 
-export type CardProps = {
-  page: PageProps;
-};
+export type CardProps = { page: PageType };
 export type ArticleProps = CardProps;
 export type ArticleMetaProps = CardProps;
 
@@ -48,7 +46,7 @@ export type PropertyType = {
   name: { title: RichTextType[] };
   auther: { rich_text: RichTextType[] };
   slug: { rich_text: RichTextType[] };
-  published: { data: { start: string } };
+  published: { date: { start: string } };
   isPublic: { checkbox: boolean };
   tags: { multi_select: [{ name: string }] };
 };
