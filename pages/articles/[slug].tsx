@@ -4,17 +4,23 @@ import React from "react";
 import ArticleMeta from "../../components/ArticleMeta";
 import Layout from "../../components/Layout";
 import { ArticleProps, Params } from "../../types/types";
+import { fetchBlocksByPageId, fetchPages } from "../../utils/notion";
 import { sampleCards } from "../../utils/sample";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { slug } = ctx.params as Params;
 
-  const page = sampleCards.find((data) => data.slug === slug);
+  const { results } = await fetchPages({ slug: slug });
+  const page = results[0];
+  const pageId = page.id;
+  const { results: blocks } = await fetchBlocksByPageId(pageId);
 
   return {
     props: {
       page: page,
+      blocks: blocks,
     },
+    revalidate: 10,
   };
 };
 
