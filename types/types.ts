@@ -27,6 +27,30 @@ export type Params = ParsedUrlQuery & {
 
 export type FileType = Record<"file" | "external", { url: string }>;
 
+export type AnnotationType = {
+  bold: boolean;
+  code: boolean;
+  italic: boolean;
+  strikethrough: boolean;
+  underline: boolean;
+  color: string;
+};
+
+export type RichTextType = {
+  plain_text: string;
+  href: string | null;
+  annotations: AnnotationType;
+};
+
+export type PropertyType = {
+  name: {};
+  auther: {};
+  slug: {};
+  published: {};
+  isPublic: {};
+  tags: {};
+};
+
 export type PageType = {
   id: string;
   cover: FileType | null;
