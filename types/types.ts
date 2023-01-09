@@ -24,3 +24,11 @@ export type ArticleMetaProps = CardProps;
 export type Params = ParsedUrlQuery & {
   slug: string;
 };
+
+export type FileType = Record<"file" | "external", { url: string }>;
+
+export type PageType = {
+  id: string;
+  cover: FileType | null;
+  properties: Record<string, any>;
+};

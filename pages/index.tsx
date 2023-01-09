@@ -1,13 +1,24 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Card from "../components/Cards";
 import Layout from "../components/Layout";
 import { siteConfig } from "../site.config";
+import { fetchPages } from "../utils/notion";
 import { sampleCards } from "../utils/sample";
 
-const Home: NextPage = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const { results } = await fetchPages();
+  return {
+    props: {
+      pages: results ? results : [],
+    },
+    revalidate: 10,
+  };
+}
+
+const Home: NextPage = ({ pages }) => {
   return (
     <Layout>
       <div className="pt-12">
