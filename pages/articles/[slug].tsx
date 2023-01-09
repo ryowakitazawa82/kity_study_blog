@@ -8,6 +8,7 @@ import { ArticleProps, Params } from "../../types/types";
 import { fetchBlocksByPageId, fetchPages } from "../../utils/notion";
 import { getText } from "../../utils/property";
 import { sampleCards } from "../../utils/sample";
+import NotionBlocks from "notion-block-renderer";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { results } = await fetchPages({});
@@ -50,10 +51,13 @@ const Article: NextPage<ArticleProps> = ({ page, blocks }) => {
         </div>
 
         {/* article */}
-        <div className="my-12">
+        {/* <div className="my-12">
           {blocks.map((block, index) => (
             <Block key={index} block={block} />
           ))}
+        </div> */}
+        <div className="my-12">
+          <NotionBlocks blocks={blocks} isCodeHighlighter={true} />
         </div>
       </article>
     </Layout>
